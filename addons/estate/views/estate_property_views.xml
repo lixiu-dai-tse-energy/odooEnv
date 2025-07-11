@@ -2,11 +2,15 @@
 <odoo>
 
     <record id="test_model_action" model="ir.actions.act_window">
-        <field name="name">Test action</field>
-        <field name="res_model">estate.property</field>
+        <field name="name">afficher</field>
+        <field name="res_model">test_model</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
-            <p class="test_afficher_estate">
+
+        <list string="Tests">
+            <field name="name"/>
+            <field name="last_seen">
+                  <p class="test_afficher_estate">
                 c'est une action
             </p>
             <p class="test_afficher_estate">
@@ -15,8 +19,36 @@
             <p class="test_afficher_estate">
                 c'est une action
             </p>
+
+            </field>
+        </list>
+
+            <form string="Test">
+    <sheet>
+        <group>
+            <group>
+                <field name="name">Name</field>
+            </group>
+            <group>
+                <field name="last_seen"/>
+            </group>
+        </group>
+        <notebook>
+            <page string="Description">
+                <field name="description"/>
+            </page>
+        </notebook>
+    </sheet>
+</form>
         </field>
     </record>
+<!--    <record id="test_properties" model ="ir.actions.act_window">-->
+<!--        <field name="name">Menu</field>-->
+<!--        <field name="res_model"> Create</field>-->
+<!--        <field name="view_mode">list,form</field>-->
+<!--        <list id="properties">Hola</list>-->
+
+<!--    </record>-->
 
 
 

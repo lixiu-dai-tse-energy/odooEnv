@@ -1,11 +1,11 @@
 from odoo import models,fields
 
-class Estate(models.Model):
-    _name="estate.property"
-    _description = "Estate Property"
+class TestModel(models.Model):
+    _name="test_model"
+    _description = "test model"
     #_order = "sequence"
 
-    name = fields.Char('Programme Name', required=True, translate=True)
+    name = fields.Char('Properties', required=True, translate=True)
     description = fields.Char('Description', required=False)
     expected_price = fields.Float(string="Expected Price", required = True)
     postcode = fields.Char('Poste Code : ', required = True, translate = True)
