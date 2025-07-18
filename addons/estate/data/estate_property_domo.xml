@@ -2,11 +2,12 @@
 <odoo><data noupdate="1">
 
     <!-- Message with scheduled notification -->
-    <record id="estate_property_demo" model="test.model">
+    <record id="estate_property_demo" model="estate_property">
         <field name="name" >South apt </field>
         <field name="expected_price" type="html"><p>500000.00</p></field>
         <field name="date_avaibility" eval="(DateTime.today() - timedelta(days=90)).strftime('%Y-%m-%d %H:%M:00')"/>
         <field name="postcode">310000</field>
+        <field name="property_type">Appartement</field>
     </record>
 </data>
 </odoo>

@@ -1,55 +1,68 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="test_model_action" model="ir.actions.act_window">
-        <field name="name">afficher</field>
-        <field name="res_model">test_model</field>
+    <!-- Action -->
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">estate.property</field>
         <field name="view_mode">list,form</field>
-        <field name="help" type="html">
+    </record>
+     <record id="estate_property_type_action" model="ir.actions.act_window">
+        <field name="name">Properties types</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+         <record id="estate_property_tag_action" model="ir.actions.act_window">
+        <field name="name">Properties tags</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-        <list string="Tests">
-            <field name="name"/>
-            <field name="last_seen">
-                  <p class="test_afficher_estate">
-                c'est une action
-            </p>
-            <p class="test_afficher_estate">
-                c'est une action
-            </p>
-            <p class="test_afficher_estate">
-                c'est une action
-            </p>
+    <!-- <record id="estate_property_buyer_action" model="ir.actions.act_window">
+        <field name="name">Buyer</field>
+        <field name="res_model">buyer</field>
+        <field name="view_mode">list,form</field>
+    </record>
+     <record id="estate_property_seller_action" model="ir.actions.act_window">
+        <field name="name">Properties seller</field>
+        <field name="res_model">seller</field>
+        <field name="view_mode">list,form</field>
+    </record>-->
 
-            </field>
-        </list>
-
-            <form string="Test">
-    <sheet>
-        <group>
-            <group>
-                <field name="name">Name</field>
-            </group>
-            <group>
+    <!-- Vue liste (CORRIGÉ avec <list>) -->
+    <record id="property_view_tree" model="ir.ui.view">
+        <field name="name">property.list</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list string="Properties">
+                <field name="name"/>
                 <field name="last_seen"/>
-            </group>
-        </group>
-        <notebook>
-            <page string="Description">
-                <field name="description"/>
-            </page>
-        </notebook>
-    </sheet>
-</form>
+            </list>
         </field>
     </record>
-<!--    <record id="test_properties" model ="ir.actions.act_window">-->
-<!--        <field name="name">Menu</field>-->
-<!--        <field name="res_model"> Create</field>-->
-<!--        <field name="view_mode">list,form</field>-->
-<!--        <list id="properties">Hola</list>-->
-
-<!--    </record>-->
-
-
-
+     <record id="property_type_view_tree" model="ir.ui.view">
+        <field name="name">property.type.list</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <list string="Properties">
+                   <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="property_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+       <record id="property_offers_view_tree" model="ir.ui.view">
+        <field name="name">offers.list</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <list string="Properties"  >
+                <field name="price"/>
+                <field name="partner_id"/>
+                 <field name="status"/>
+                 <button name="action_accept_offer" type="object"    icon="fa-check"  invisible="status in ['Accepted', 'Refused']" />
+                 <button name="action_refuse_offer" type="object"    icon="fa-Example of times fa-times"  invisible="status in ['Accepted', 'Refused']"/>
+                 <field name="date_created"/>
+                 <field name="date_deadline"/>
+            </list>
+        </field>
+    </record>
 </odoo>

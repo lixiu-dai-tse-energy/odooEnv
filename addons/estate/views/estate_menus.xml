@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>  
 <odoo>
     <menuitem id="test_menu_root" name="Estate">
-        <menuitem id="test_first_level_menu" name="New property">
-            <menuitem id="test_model_menu_action" action="test_model_action"/>
+        <menuitem id="adevertisements_menu" name="Advertisements" >
+            <menuitem id="estate_property_menu_action" action="estate_property_action"/>
         </menuitem>
+         <menuitem id="property_type_menu" name="Settings" >
+            <menuitem id="estate_property_type_menu_action" action="estate_property_type_action"/>
+             <menuitem id="estate_property_tag_menu_action" action="estate_property_tag_action"/>
+        </menuitem>
+       <!--  <menuitem id="property_seller_menu" name="Ajouter Seller" >
+            <menuitem id="estate_property_seller_menu_action" action="estate_property_seller_action"/>
+        </menuitem>
+          <menuitem id="property_buyer_menu" name="Ajouter Buyer" >
+            <menuitem id="estate_property_buyer_menu_action" action="estate_property_buyer_action"/>
+        </menuitem>-->
+
     </menuitem>
+
 </odoo>

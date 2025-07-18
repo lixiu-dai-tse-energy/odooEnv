@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_property_search" model="ir.ui.view">
+
+        <field name="name">property.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Property">
+                <field name="name" string="Title"/>
+                <group expand="1" string="Group By">
+                    <filter string="Selling_price" name="selling_price" context="{'group_by':'selling_price', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+
+
+    </record>
+</odoo>
