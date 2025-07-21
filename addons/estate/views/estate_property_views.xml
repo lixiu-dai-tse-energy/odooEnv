@@ -33,9 +33,15 @@
         <field name="name">property.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Properties">
+            <list string="Properties"  editable="bottom" >
                 <field name="name"/>
-                <field name="last_seen"/>
+                  <field name="property_type_id"/>
+                  <field name="postcode"/>
+                  <field name="property_tag_ids" widget="many2many_tags"/>
+                  <field name="bedrooms"/>
+                  <field name="living_area"/>
+                  <field name="expected_price"/>
+                <field name="selling_price"/>
             </list>
         </field>
     </record>
@@ -54,7 +60,7 @@
         <field name="name">offers.list</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
-            <list string="Properties"  >
+            <list string="Properties"  editable="bottom">
                 <field name="price"/>
                 <field name="partner_id"/>
                  <field name="status"/>
