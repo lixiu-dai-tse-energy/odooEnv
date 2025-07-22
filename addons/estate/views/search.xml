@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <search string="Property">
                 <field name="name" string="Title"/>
+                <filter string="Available" name="available" domain="[('date_avaibility','!=',False)]"/>
+               <field name="living_area" string="Min Living Area" filter_domain="[('living_area', '>=', self)]"/>
                 <group expand="1" string="Group By">
                     <filter string="Selling_price" name="selling_price" context="{'group_by':'selling_price', 'residual_visible':True}"/>
                 </group>
