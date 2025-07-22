@@ -33,7 +33,7 @@
         <field name="name">property.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Properties"  editable="bottom" >
+            <list string="Properties"  editable="top"  decoration-success="state=='Sold'">
                 <field name="name"/>
                   <field name="property_type_id"/>
                   <field name="postcode"/>
@@ -42,6 +42,7 @@
                   <field name="living_area"/>
                   <field name="expected_price"/>
                 <field name="selling_price"/>
+                <field name="state"  />
             </list>
         </field>
     </record>
@@ -60,10 +61,10 @@
         <field name="name">offers.list</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
-            <list string="Properties"  editable="bottom">
+            <list string="Properties"  editable="bottom" decoration-success="status=='Accepted'" decoration-danger="status=='Refused'">
                 <field name="price"/>
                 <field name="partner_id"/>
-                 <field name="status"/>
+                 <field name="status" invisible="1"/>
                  <button name="action_accept_offer" type="object"    icon="fa-check"  invisible="status in ['Accepted', 'Refused']" />
                  <button name="action_refuse_offer" type="object"    icon="fa-Example of times fa-times"  invisible="status in ['Accepted', 'Refused']"/>
                  <field name="date_created"/>
